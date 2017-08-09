@@ -37,6 +37,12 @@ static const Vertex vertexList[] = {
     [self setupOpenGL];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self cleanOpenGL];
+}
+
+
 
 - (void)setupOpenGL {
 
@@ -71,10 +77,22 @@ static const Vertex vertexList[] = {
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+- (void)cleanOpenGL {
+    // recode currentContext
+    EAGLContext *currentContext = EAGLContext.currentContext;
 
+    GLKView *glkView = (GLKView *)self.view;
+    [EAGLContext setCurrentContext:glkView.context];
+    
+    if (_vertexBUfferID != 0) {
+        _vertexBUfferID = 0;
+    }
+    if (glkView.context != nil) {
+        glkView.context = NULL;
+    }
+    // recover currentContext
+    [EAGLContext setCurrentContext:currentContext];
+    
+}
 
 @end
