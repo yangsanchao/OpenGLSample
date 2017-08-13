@@ -1,18 +1,17 @@
 //
 //  ViewController.m
-//  triangle
+//  triangle_2
 //
-//  Created by Yangsc on 2017/8/8.
+//  Created by Yangsc on 2017/8/13.
 //  Copyright © 2017年 Yangsc. All rights reserved.
 //
 
 #import "ViewController.h"
+#import "AGLKView.h"
 
-@interface ViewController () 
+@interface ViewController ()
 
-@property (nonatomic, strong)  GLKBaseEffect *baseEffect;
-
-@property (nonatomic, assign) GLuint vertexBUfferID;
+@property (nonatomic, strong) AGLKView *aglkview;
 
 @end
 
@@ -30,7 +29,6 @@ static const Vertex vertexList[] = {
 @implementation ViewController
 
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -43,11 +41,10 @@ static const Vertex vertexList[] = {
 }
 
 
-
 - (void)setupOpenGL {
-
-    GLKView *glkView = (GLKView *)self.view;
-    if (![glkView isKindOfClass:[GLKView class]]) {
+    
+    AGLKView *glkView = (AGLKView *)self.view;
+    if (![glkView isKindOfClass:[AGLKView class]]) {
         NSAssert(1, @" glkView is not KindOfClass:GLKView!!");
     }
     
@@ -66,7 +63,7 @@ static const Vertex vertexList[] = {
 }
 
 
-- (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
+- (void)glkView:(AGLKView *)view drawInRect:(CGRect)rect {
     
     [self.baseEffect prepareToDraw];
     glClear(GL_COLOR_BUFFER_BIT);
@@ -80,8 +77,8 @@ static const Vertex vertexList[] = {
 - (void)cleanOpenGL {
     // recode currentContext
     EAGLContext *currentContext = EAGLContext.currentContext;
-
-    GLKView *glkView = (GLKView *)self.view;
+    
+    AGLKView *glkView = (AGLKView *)self.view;
     [EAGLContext setCurrentContext:glkView.context];
     
     if (_vertexBUfferID != 0) {
