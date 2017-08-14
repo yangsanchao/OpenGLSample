@@ -15,7 +15,7 @@
 
 @property (nonatomic, strong)  GLKBaseEffect *baseEffect;
 
-@property (nonatomic, assign) GLuint vertexBUfferID;
+@property (nonatomic, assign) GLuint vertexBufferID;
 
 @end
 

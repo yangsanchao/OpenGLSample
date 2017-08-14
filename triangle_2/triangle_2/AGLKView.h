@@ -68,7 +68,7 @@ typedef NS_ENUM(GLint, AGLKViewDrawableMultisample)
 
 @property (nonatomic, weak)  id <AGLKViewDelegate> delegate;
 
-@property (nonatomic, retain) EAGLContext *context;
+@property (nonatomic, strong) EAGLContext *context;
 
 @property (nonatomic, readonly) NSInteger drawableWidth;
 @property (nonatomic, readonly) NSInteger drawableHeight;

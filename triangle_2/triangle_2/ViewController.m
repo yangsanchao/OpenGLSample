@@ -56,15 +56,15 @@ static const Vertex vertexList[] = {
     self.baseEffect.constantColor = GLKVector4Make(1.0f, 1.0f, 1.0f, 1.0f);
     glClearColor(0.0f,0.0f,0.0f,0.0f);
     
-    glGenBuffers(1, &_vertexBUfferID);
-    glBindBuffer(GL_ARRAY_BUFFER, _vertexBUfferID);
+    glGenBuffers(1, &_vertexBufferID);
+    glBindBuffer(GL_ARRAY_BUFFER, _vertexBufferID);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertexList), vertexList, GL_STATIC_DRAW);
     
 }
 
 
 - (void)glkView:(AGLKView *)view drawInRect:(CGRect)rect {
-    
+   
     [self.baseEffect prepareToDraw];
     glClear(GL_COLOR_BUFFER_BIT);
     
@@ -81,8 +81,8 @@ static const Vertex vertexList[] = {
     AGLKView *glkView = (AGLKView *)self.view;
     [EAGLContext setCurrentContext:glkView.context];
     
-    if (_vertexBUfferID != 0) {
-        _vertexBUfferID = 0;
+    if (_vertexBufferID != 0) {
+        _vertexBufferID = 0;
     }
     if (glkView.context != nil) {
         glkView.context = nil;

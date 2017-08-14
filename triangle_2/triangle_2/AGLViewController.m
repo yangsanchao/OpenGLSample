@@ -11,7 +11,7 @@
 
 @interface AGLViewController ()
 
-@property (nonatomic, strong) CADisplayLink *disPlaylink;
+@property (nonatomic, strong) CADisplayLink *displayLink;
 
 @end
 
@@ -21,7 +21,7 @@ static const NSInteger kAGLKDefaultFramesPerSecond = 30;
 
 - (void)setPreferredFramesPerSecond:(NSInteger)preferredFramesPerSecond {
     _preferredFramesPerSecond = preferredFramesPerSecond;
-    _disPlaylink.preferredFramesPerSecond = MAX(1, 60 / preferredFramesPerSecond);
+    _displayLink.preferredFramesPerSecond = MAX(1, 60 / preferredFramesPerSecond);
 }
 
 - (NSInteger)framesPerSecond {
@@ -55,10 +55,10 @@ static const NSInteger kAGLKDefaultFramesPerSecond = 30;
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
 
     if (self = [super initWithCoder:aDecoder]) {
-        _disPlaylink = [CADisplayLink displayLinkWithTarget:self selector:@selector(drawView)];
-        _disPlaylink.preferredFramesPerSecond = kAGLKDefaultFramesPerSecond;
+        _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(drawView)];
+        _displayLink.preferredFramesPerSecond = kAGLKDefaultFramesPerSecond;
         _preferredFramesPerSecond = kAGLKDefaultFramesPerSecond;
-        [_disPlaylink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+        [_displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
         self.paused = NO;
     }
     return self;
@@ -67,10 +67,10 @@ static const NSInteger kAGLKDefaultFramesPerSecond = 30;
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        _disPlaylink = [CADisplayLink displayLinkWithTarget:self selector:@selector(drawView)];
-        _disPlaylink.preferredFramesPerSecond = kAGLKDefaultFramesPerSecond;
+        _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(drawView)];
+        _displayLink.preferredFramesPerSecond = kAGLKDefaultFramesPerSecond;
         _preferredFramesPerSecond = kAGLKDefaultFramesPerSecond;
-        [_disPlaylink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+        [_displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
     }
     return self;
 }
