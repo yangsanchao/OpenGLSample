@@ -82,7 +82,8 @@ static const Vertex vertexList[] = {
 //    glVertexAttribPointer(GLKVertexAttribPosition, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
 //    glDrawArrays(GL_TRIANGLES, 0, 3);
     
-    [_vertexBuffer prepareToDrawWithAttrib:GLKVertexAttribPosition numberOfCoordinates:3 attribOffset:0 shouldEnalbe:YES];
+    // offsetof，程序语言，该宏用于求结构体中一个成员在该结构体中的偏移量。
+    [_vertexBuffer prepareToDrawWithAttrib:GLKVertexAttribPosition numberOfCoordinates:3 attribOffset:offsetof(Vertex, posionCoords) shouldEnalbe:YES];
     
     [_vertexBuffer drawArrayWithMode:GL_TRIANGLES startVertexIndex:0 numberOfVertices:3];
     
