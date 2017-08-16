@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "AGLKVertexAttribArrayBuffer.h"
+#import "AGLContext.h"
 
 @interface ViewController () 
 
@@ -55,8 +56,8 @@ static const Vertex vertexList[] = {
         NSAssert(1, @" glkView is not KindOfClass:GLKView!!");
     }
     
-    glkView.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
-    [EAGLContext setCurrentContext:glkView.context];
+    glkView.context = [[AGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+    [AGLContext setCurrentContext:glkView.context];
     
     self.baseEffect = [[GLKBaseEffect alloc] init];
     self.baseEffect.useConstantColor = GL_TRUE;
@@ -75,7 +76,7 @@ static const Vertex vertexList[] = {
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
     
     [self.baseEffect prepareToDraw];
-    glClear(GL_COLOR_BUFFER_BIT);
+    [(AGLContext *)view.context clear:GL_COLOR_BUFFER_BIT];
     
 //    glEnableVertexAttribArray(GLKVertexAttribPosition);
 //    glVertexAttribPointer(GLKVertexAttribPosition, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
@@ -98,7 +99,8 @@ static const Vertex vertexList[] = {
     if (_vertexBUfferID != 0) {
         _vertexBUfferID = 0;
     }
-    if (glkView.context != nil) {
+    
+    if ((AGLContext *)glkView.context != nil) {
         glkView.context = nil;
     }
     // recover currentContext
