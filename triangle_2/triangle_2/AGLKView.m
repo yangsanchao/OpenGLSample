@@ -9,7 +9,6 @@
 #import "AGLKView.h"
 #import <UIKit/UIKit.h>
 #import <OpenGLES/ES2/gl.h>
-#import <QuartzCore/QuartzCore.h>
 
 @interface AGLKView ()
 
@@ -21,6 +20,7 @@
 @property (nonatomic, assign) GLuint defaultFrameBuffer;
 @property (nonatomic, assign) GLuint colorRenderBuffer;
 @property (nonatomic, assign) GLuint depthRenderBuffer;
+
 @end
 
 
@@ -43,7 +43,6 @@
 
 - (void)setContext:(EAGLContext *)context {
 
-    
     if (context != _context) {
         [EAGLContext setCurrentContext:context];
         if (_defaultFrameBuffer != 0) {
