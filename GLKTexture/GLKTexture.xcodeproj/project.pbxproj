@@ -13,6 +13,9 @@
 		0AEDE1FE1F44A3E600E59B84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEDE1FC1F44A3E600E59B84 /* Main.storyboard */; };
 		0AEDE2001F44A3E600E59B84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AEDE1FF1F44A3E600E59B84 /* Assets.xcassets */; };
 		0AEDE2031F44A3E600E59B84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AEDE2011F44A3E600E59B84 /* LaunchScreen.storyboard */; };
+		0AEDE20E1F44A41000E59B84 /* AGLContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEDE20B1F44A41000E59B84 /* AGLContext.m */; };
+		0AEDE20F1F44A41000E59B84 /* AGLKVertexAttribArrayBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AEDE20D1F44A41000E59B84 /* AGLKVertexAttribArrayBuffer.m */; };
+		0AEDE2111F45221100E59B84 /* leaves.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0AEDE2101F45221100E59B84 /* leaves.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,11 @@
 		0AEDE1FF1F44A3E600E59B84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AEDE2021F44A3E600E59B84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AEDE2041F44A3E700E59B84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0AEDE20A1F44A41000E59B84 /* AGLContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGLContext.h; sourceTree = "<group>"; };
+		0AEDE20B1F44A41000E59B84 /* AGLContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGLContext.m; sourceTree = "<group>"; };
+		0AEDE20C1F44A41000E59B84 /* AGLKVertexAttribArrayBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AGLKVertexAttribArrayBuffer.h; sourceTree = "<group>"; };
+		0AEDE20D1F44A41000E59B84 /* AGLKVertexAttribArrayBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AGLKVertexAttribArrayBuffer.m; sourceTree = "<group>"; };
+		0AEDE2101F45221100E59B84 /* leaves.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = leaves.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +66,10 @@
 		0AEDE1F21F44A3E600E59B84 /* GLKTexture */ = {
 			isa = PBXGroup;
 			children = (
+				0AEDE20A1F44A41000E59B84 /* AGLContext.h */,
+				0AEDE20B1F44A41000E59B84 /* AGLContext.m */,
+				0AEDE20C1F44A41000E59B84 /* AGLKVertexAttribArrayBuffer.h */,
+				0AEDE20D1F44A41000E59B84 /* AGLKVertexAttribArrayBuffer.m */,
 				0AEDE1F61F44A3E600E59B84 /* AppDelegate.h */,
 				0AEDE1F71F44A3E600E59B84 /* AppDelegate.m */,
 				0AEDE1F91F44A3E600E59B84 /* ViewController.h */,
@@ -74,6 +86,7 @@
 		0AEDE1F31F44A3E600E59B84 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0AEDE2101F45221100E59B84 /* leaves.gif */,
 				0AEDE1F41F44A3E600E59B84 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -139,6 +152,7 @@
 			files = (
 				0AEDE2031F44A3E600E59B84 /* LaunchScreen.storyboard in Resources */,
 				0AEDE2001F44A3E600E59B84 /* Assets.xcassets in Resources */,
+				0AEDE2111F45221100E59B84 /* leaves.gif in Resources */,
 				0AEDE1FE1F44A3E600E59B84 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,7 +164,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AEDE20E1F44A41000E59B84 /* AGLContext.m in Sources */,
 				0AEDE1FB1F44A3E600E59B84 /* ViewController.m in Sources */,
+				0AEDE20F1F44A41000E59B84 /* AGLKVertexAttribArrayBuffer.m in Sources */,
 				0AEDE1F81F44A3E600E59B84 /* AppDelegate.m in Sources */,
 				0AEDE1F51F44A3E600E59B84 /* main.m in Sources */,
 			);
