@@ -35,6 +35,8 @@
          numberOfVertices:(GLsizei)count;
 
 
-
+- (void)reInitWithAttribStride:(GLsizeiptr )stride 
+              numberOfVertices:(GLuint)count 
+                          data:(const GLvoid *)dataPtr;
 
 @end
