@@ -95,16 +95,18 @@ static Vertex vertexList[] = {
     self.baseEffect.constantColor = GLKVector4Make(1.0f, 1.0f, 1.0f, 1.0f);
     glClearColor(0.0f,0.0f,0.0f,0.0f);
     
+    NSDictionary *options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], GLKTextureLoaderOriginBottomLeft,nil];
+    
     _vertexBuffer = [[AGLKVertexAttribArrayBuffer alloc] initWithAttribStride:sizeof(Vertex) numberOfVertices:sizeof(vertexList) / sizeof(Vertex) data:vertexList usage:GL_STATIC_DRAW];
     
-    CGImageRef cgImage = [[UIImage imageNamed:@"beetle.png"] CGImage];
+    CGImageRef cgImage = [[UIImage imageNamed:@"leaves.gif"] CGImage];
     
     _textInfo = [GLKTextureLoader textureWithCGImage:cgImage options:nil error:nil];
     
     
-    CGImageRef cgImage2 = [[UIImage imageNamed:@"leaves.gif"] CGImage];
+    CGImageRef cgImage2 = [[UIImage imageNamed:@"beetle.png"] CGImage];
     
-    _textInfo2 = [GLKTextureLoader textureWithCGImage:cgImage2 options:nil error:nil];
+    _textInfo2 = [GLKTextureLoader textureWithCGImage:cgImage2 options:options error:nil];
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -120,19 +122,16 @@ static Vertex vertexList[] = {
     
     [_vertexBuffer prepareToDrawWithAttrib:GLKVertexAttribTexCoord0 numberOfCoordinates:2 attribOffset:offsetof(Vertex, textureCoords) shouldEnalbe:YES];
     
+    
     [self.baseEffect prepareToDraw];
-
-    self.baseEffect.texture2d0.name = _textInfo.name;
-    self.baseEffect.texture2d0.target = _textInfo.target;
-
+    self.baseEffect.texture2d0.name = _textInfo2.name;
+    self.baseEffect.texture2d0.target = _textInfo2.target;
     [_vertexBuffer drawArrayWithMode:GL_TRIANGLES startVertexIndex:0 numberOfVertices:sizeof(vertexList) / sizeof(Vertex)];
     
     
     [self.baseEffect prepareToDraw];
-
-    self.baseEffect.texture2d0.name = _textInfo2.name;
-    self.baseEffect.texture2d0.target = _textInfo2.target;
-    
+    self.baseEffect.texture2d0.name = _textInfo.name;
+    self.baseEffect.texture2d0.target = _textInfo.target;
     [_vertexBuffer drawArrayWithMode:GL_TRIANGLES startVertexIndex:0 numberOfVertices:sizeof(vertexList) / sizeof(Vertex)];
     
     
